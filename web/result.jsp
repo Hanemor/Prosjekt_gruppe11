@@ -7,7 +7,7 @@
 --%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.utover.alleutovere.utover" %>
+<%@ page import="com.utover.alleutovere.Utover" %>
 <%@ page import="java.util.List" %>
 <html>
 <head>

@@ -7,6 +7,7 @@ import java.util.List;
 
 public class alleTestresultater {
     private Connection connection;
+    private alleresultatParameter alleresparam;
 
     public Connection createConnection(){
         try {
@@ -18,15 +19,20 @@ public class alleTestresultater {
     }
 
 
-public List<testresultat> listOppAlleTestresultater() throws SQLException {
+public List<testresultat> listOppAlleTestresultater(List<testresultat> parameter) throws SQLException {
         List<testresultat> testresultater = new ArrayList<>();
+
+        testresultat testres = parameter.get(0);
+
+
         try {
-            //String query = "SELECT * FROM Roprosjekt.testresultater";
+
             String query = "select\n" +
-                    "uiD,\n" +
+                    "testresultater.uID,\n" +
                     "år,\n" +
                     "uke,\n" +
-                    "roKlasse.klasseType,\n" +
+                    "roklasse.klasseType,\n" +
+                    "score,\n" +
                     "watt_60,\n" +
                     "bevegelighet,\n" +
                     "watt_5000_m,\n" +
@@ -41,35 +47,46 @@ public List<testresultat> listOppAlleTestresultater() throws SQLException {
                     "sek_3000_m,\n" +
                     "min_3000_m,\n" +
                     "antall_Kr_hev,\n" +
-                    "_3000_løp\n" +
+                    "_3000_løp,\n" +
+                    "utover.fornavn,\n" +
+                    "utover.etternavn\n" +
                     "from testresultater testresultater\n" +
-                    "inner join roKlasse roKlasse\n" +
-                    "\ton testresultater.klasseID = roKlasse.klasseID";
+                    "join roKlasse roklasse\n" +
+                    "on testresultater.klasseID = roklasse.klasseID\n" +
+                    "join utover utover\n" +
+                    "on testresultater.uID = utover.uID\n" +
+                    "where år = ? and uke = ? and klasseType = ? ";
             Connection connection = createConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, testres.getÅr());
+            preparedStatement.setInt(2, testres.getUke());
+            preparedStatement.setString(3, testres.getKlasseID());
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()){
-                int uID = (rs.getInt(1));
-                int år = (rs.getInt(2));
-                int uke = (rs.getInt(3));
-                String klasseID = (rs.getString(4));
-                float watt_60 = (rs.getFloat(5));
-                int bevegelighet = (rs.getInt(6));
-                float watt_5000_m = (rs.getFloat(7));
-                String tid_5000_m = (rs.getString(8));
-                float watt_2000_ = (rs.getFloat(9));
-                String tid_2000_m = (rs.getString(10));
-                float prosent_ligg_ro = (rs.getFloat(11));
-                float kilo_ligg_ro = (rs.getFloat(12));
-                float prosent_knebøy = (rs.getFloat(13));
-                float kilo_knebøy = (rs.getFloat(14));
-                float Cm_Sargeant = (rs.getFloat(15));
-                float sek_2000_m = (rs.getFloat(16));
-                String min_2000_m = (rs.getString(17));
-                int antall_Kr_hev = (rs.getInt(18));
-                String _3000_løp = (rs.getString(19));
-                testresultater.add(new testresultat(uID, år, uke, klasseID, watt_60, bevegelighet, watt_5000_m, tid_5000_m, watt_2000_, tid_2000_m, prosent_ligg_ro, kilo_ligg_ro, prosent_knebøy, kilo_knebøy, Cm_Sargeant, sek_2000_m, min_2000_m, antall_Kr_hev, _3000_løp));
+                int uID = (rs.getInt("uID"));
+                int år = (rs.getInt("år"));
+                int uke = (rs.getInt("uke"));
+                String klasseID = (rs.getString("klasseType"));
+                float watt_60 = (rs.getFloat("watt_60"));
+                int bevegelighet = (rs.getInt("bevegelighet"));
+                float watt_5000_m = (rs.getFloat("watt_5000_m"));
+                String tid_5000_m = (rs.getString("tid_5000_m"));
+                float watt_2000_m = (rs.getFloat("watt_2000_m"));
+                String tid_2000_m = (rs.getString("tid_2000_m"));
+                float prosent_ligg_ro = (rs.getFloat("prosent_ligg_ro"));
+                float kilo_ligg_ro = (rs.getFloat("kilo_ligg_ro"));
+                float prosent_knebøy = (rs.getFloat("prosent_knebøy"));
+                float kilo_knebøy = (rs.getFloat("kilo_knebøy"));
+                float Cm_Sargeant = (rs.getFloat("cm_Sargeant"));
+                float sek_3000_m = (rs.getFloat("sek_3000_m"));
+                String min_3000_m = (rs.getString("min_3000_m"));
+                int antall_Kr_hev = (rs.getInt("antall_Kr_hev"));
+                String _3000_løp = (rs.getString("_3000_løp"));
+                float score = (rs.getFloat("score"));
+                String fornavn = (rs.getString("fornavn"));
+                String etternavn = (rs.getString("etternavn"));
+                testresultater.add(new testresultat(uID, år, uke, klasseID, watt_60, bevegelighet, watt_5000_m, tid_5000_m, watt_2000_m, tid_2000_m, prosent_ligg_ro, kilo_ligg_ro, prosent_knebøy, kilo_knebøy, Cm_Sargeant, sek_3000_m, min_3000_m, antall_Kr_hev, _3000_løp, score, fornavn, etternavn));
 
             }
         } catch (SQLException e) {

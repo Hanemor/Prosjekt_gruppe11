@@ -1,19 +1,19 @@
 package com.utover.alleutovere;
 
-public class utover {
+public class utoveri {
     private int uID;
-    private String kjonnID;
-    private String klubbID;
-    private String KlasseID;
+    private int kjonnID;
+    private int klubbID;
+    private int KlasseID;
     private String fornavn;
     private String etternavn;
     private int fodt;
 
-    public utover(int uID, String kjonnID, String klubbID, String klasseID, String fornavn, String etternavn, int fodt) {
+    public utoveri(int uID, int kjonnID, int klubbID, int klasseID, String fornavn, String etternavn, int fodt) {
         this.uID = uID;
         this.kjonnID = kjonnID;
         this.klubbID = klubbID;
-        this.KlasseID = klasseID;
+        KlasseID = klasseID;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.fodt = fodt;
@@ -27,27 +27,27 @@ public class utover {
         this.uID = uID;
     }
 
-    public String getKjonnID() {
+    public int getKjonnID() {
         return kjonnID;
     }
 
-    public void setKjonnID(String kjonnID) {
+    public void setKjonnID(int kjonnID) {
         this.kjonnID = kjonnID;
     }
 
-    public String getKlubbID() {
+    public int getKlubbID() {
         return klubbID;
     }
 
-    public void setKlubbID(String klubbID) {
+    public void setKlubbID(int klubbID) {
         this.klubbID = klubbID;
     }
 
-    public String getKlasseID() {
+    public int getKlasseID() {
         return KlasseID;
     }
 
-    public void setKlasseID(String klasseID) {
+    public void setKlasseID(int klasseID) {
         KlasseID = klasseID;
     }
 

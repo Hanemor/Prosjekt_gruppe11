@@ -1,4 +1,6 @@
-package com;
+package com.utover.alleutovere;
+
+import com.utover.alleutovere.alleUtovere;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +15,11 @@ import java.sql.*;
 @WebServlet( name = "UtoverInsertServlet", urlPatterns = {"/LeggTil"})
 public class UtoverInsertServlet extends HttpServlet {
     private Connection connection;
+    private alleUtovere alleutovere;
+
+    public void init(){
+        alleutovere = new alleUtovere();
+    }
 
     public Connection createConnection(){
         try {
@@ -33,36 +40,11 @@ public class UtoverInsertServlet extends HttpServlet {
         String Fornavn = request.getParameter("fornavn");
         String Etternavn = request.getParameter("etternavn");
         int Fodt = Integer.parseInt(request.getParameter("fodt"));
+        utoveri nyUtover = new utoveri(Utøverid, Kjonnid, Klubbid, Klasseid, Fornavn, Etternavn, Fodt);
+        alleutovere.insertUtover(nyUtover);
 
 
-        try {
-            String query = "insert into utover values (?,?,?,?,?,?,?)";
-            connection = createConnection();
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, Utøverid);
-            statement.setInt(2, Kjonnid);
-            statement.setInt(3, Klubbid);
-            statement.setInt(4, Klasseid);
-            statement.setString(5, Fornavn);
-            statement.setString(6, Etternavn);
-            statement.setInt(7, Fodt);
-            statement.execute();
-            PrintWriter out = response.getWriter();
-            out.println("<H1>Ny bruker opprettet:-)</H1>");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            destroy();
-        }
-    }
-
-    public void destroy(){
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
 
+}
 }

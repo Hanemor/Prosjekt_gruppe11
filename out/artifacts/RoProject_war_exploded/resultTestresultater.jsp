@@ -35,9 +35,12 @@
     <thead>
     <tr>
         <th>UtoverID</th>
+        <th>fornavn</th>
+        <th>etternavn</th>
         <th>år</th>
         <th>uke</th>
         <th>klasseID</th>
+        <th>score</th>
         <th>watt_60</th>
         <th>bevegelighet</th>
         <th>watt_5000_m</th>
@@ -49,10 +52,11 @@
         <th>prosent_knebøy</th>
         <th>kilo_knebøy</th>
         <th>Cm_Sargeant</th>
-        <th>sek_2000_m</th>
-        <th>min_2000_m</th>
+        <th>sek_3000_m</th>
+        <th>min_3000_m</th>
         <th>antall_Kr_hev</th>
         <th>_3000_løp</th>
+
     </tr>
     </thead>
 
@@ -64,11 +68,15 @@
 
 
             <td>${testresultat.uID}</td>
+            <td>${testresultat.fornavn}</td>
+            <td>${testresultat.etternavn}</td>
             <td>${testresultat.år}</td>
             <td>${testresultat.uke}</td>
             <td>${testresultat.klasseID}</td>
+            <td>${testresultat.score}</td>
             <td>${testresultat.watt_60}</td>
             <td>${testresultat.bevegelighet}</td>
+            <td>${testresultat.watt_5000_m}</td>
             <td>${testresultat.tid_5000_m}</td>
             <td>${testresultat.watt_2000_m}</td>
             <td>${testresultat.tid_2000_m}</td>
@@ -77,10 +85,11 @@
             <td>${testresultat.prosent_knebøy}</td>
             <td>${testresultat.kilo_knebøy}</td>
             <td>${testresultat.cm_Sargeant}</td>
-            <td>${testresultat.sek_2000_m}</td>
-            <td>${testresultat.min_2000_m}</td>
+            <td>${testresultat.sek_3000_m}</td>
+            <td>${testresultat.min_3000_m}</td>
             <td>${testresultat.antall_Kr_hev}</td>
             <td>${testresultat._3000_løp}</td>
+
 
 
 

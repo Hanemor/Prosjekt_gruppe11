@@ -11,13 +11,13 @@
             UtøverID <input type="number" name="uID" required />
         </p>
         <p>
-            KjønnID <input type="number" name="kjonnID" required />
+            KjønnID <input type="text" name="kjonnID" required />
         </p>
         <p>
-            KlubbID<input type="number" name="klubbID" required />
+            KlubbID<input type="text" name="klubbID" required />
         </p>
         <p>
-            KlasseID <input type="number" name="klasseID" required />
+            KlasseID <input type="text" name="klasseID" required />
         </p>
         <p>
             Fornavn <input type="text" name="fornavn" required />

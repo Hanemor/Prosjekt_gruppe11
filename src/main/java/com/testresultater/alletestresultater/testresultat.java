@@ -16,12 +16,15 @@ public class testresultat {
     private float prosent_knebøy;
     private float kilo_knebøy;
     private float Cm_Sargeant;
-    private float sek_2000_m;
-    private String min_2000_m;
+    private float sek_3000_m;
+    private String min_3000_m;
     private int antall_Kr_hev;
     private String _3000_løp;
+    private float score;
+    private String fornavn;
+    private String etternavn;
 
-    public testresultat(int uID, int år, int uke, String klasseID, float watt_60, int bevegelighet, float watt_5000_m, String tid_5000_m, float watt_2000_m, String tid_2000_m, float prosent_ligg_ro, float kilo_ligg_ro, float prosent_knebøy, float kilo_knebøy, float cm_Sargeant, float sek_2000_m, String min_2000_m, int antall_Kr_hev, String _3000_løp) {
+    public testresultat(int uID, int år, int uke, String klasseID, float watt_60, int bevegelighet, float watt_5000_m, String tid_5000_m, float watt_2000_m, String tid_2000_m, float prosent_ligg_ro, float kilo_ligg_ro, float prosent_knebøy, float kilo_knebøy, float cm_Sargeant, float sek_2000_m, String min_2000_m, int antall_Kr_hev, String _3000_løp, float score, String fornavn, String etternavn) {
         this.uID = uID;
         this.år = år;
         this.uke = uke;
@@ -37,11 +40,22 @@ public class testresultat {
         this.prosent_knebøy = prosent_knebøy;
         this.kilo_knebøy = kilo_knebøy;
         Cm_Sargeant = cm_Sargeant;
-        this.sek_2000_m = sek_2000_m;
-        this.min_2000_m = min_2000_m;
+        this.sek_3000_m = sek_2000_m;
+        this.min_3000_m = min_2000_m;
         this.antall_Kr_hev = antall_Kr_hev;
         this._3000_løp = _3000_løp;
+        this.score = score;
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
     }
+
+    public testresultat(int år, int uke, String klasseID) {
+        this.år = år;
+        this.uke = uke;
+        this.klasseID = klasseID;
+    }
+
+
 
     public int getuID() {
         return uID;
@@ -163,20 +177,20 @@ public class testresultat {
         Cm_Sargeant = cm_Sargeant;
     }
 
-    public float getSek_2000_m() {
-        return sek_2000_m;
+    public float getSek_3000_m() {
+        return sek_3000_m;
     }
 
-    public void setSek_2000_m(float sek_2000_m) {
-        this.sek_2000_m = sek_2000_m;
+    public void setSek_3000_m(float sek_2000_m) {
+        this.sek_3000_m = sek_3000_m;
     }
 
-    public String getMin_2000_m() {
-        return min_2000_m;
+    public String getMin_3000_m() {
+        return min_3000_m;
     }
 
-    public void setMin_2000_m(String min_2000_m) {
-        this.min_2000_m = min_2000_m;
+    public void setMin_3000_m(String min_2000_m) {
+        this.min_3000_m = min_3000_m;
     }
 
     public int getAntall_Kr_hev() {
@@ -193,5 +207,29 @@ public class testresultat {
 
     public void set_3000_løp(String _3000_løp) {
         this._3000_løp = _3000_løp;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public String getFornavn() {
+        return fornavn;
+    }
+
+    public void setFornavn(String fornavn) {
+        this.fornavn = fornavn;
+    }
+
+    public String getEtternavn() {
+        return etternavn;
+    }
+
+    public void setEtternavn(String etternavn) {
+        this.etternavn = etternavn;
     }
 }
