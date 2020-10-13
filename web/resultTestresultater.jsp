@@ -8,6 +8,8 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="com.testresultater.alletestresultater.alleTestresultater"%>
+
+
 <html>
 <head>
     <title>Roproject</title>
@@ -29,11 +31,16 @@
 <table style="width: 100%">
     <caption>Liste over alle testresultater</caption>
 
+
     <br>
+
+
 
 
     <thead>
     <tr>
+
+
         <th>UtoverID</th>
         <th>fornavn</th>
         <th>etternavn</th>

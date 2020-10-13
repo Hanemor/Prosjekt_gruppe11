@@ -96,7 +96,7 @@ public class alleUtovere {
         Utover utover = null;
 
         try {
-            int id = (dummy.getuID());
+           // int id = (dummy.getuID());
             connection = createConnection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT utover.uID, kjonn.kjonntype, klubb.klubbNavn, roKlasse.klasseType, utover.fornavn, utover.etternavn, utover.fodt\n" +
@@ -107,7 +107,7 @@ public class alleUtovere {
                     "\ton utover.klubbID = klubb.klubbID\n" +
                     "join roKlasse roKlasse\n" +
                     "\ton utover.klasseID = roKlasse.klasseID\n" +
-                    "where uid = '" + id + "' ");
+                    "where uid = '" + dummy.getuID() + "' ");
 
             while (rs.next()) {
                 int uID = (rs.getInt(1));

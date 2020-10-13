@@ -7,6 +7,9 @@
 <body>
 <div>
   <ul>
+    <li><a href="HomePage3.jsp">HomePage:)</a></li>
+
+
     <li><a href="InsertPage.jsp">Insert ny utøver her</a></li>
     <li><a href="UtøverParameter.jsp">Hent ut utøver etter ID</a></li>
     <li><a href="<%=request.getContextPath()%>/alleutovere">alleutovere</a></li>
